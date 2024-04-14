@@ -1,5 +1,5 @@
 <?php
-echo "Hola Mundo";
+echo "List of Tables on exampledb runing on db service <br> <br>";
 
 $host = 'db'; // docker service name
 $db = 'exampledb';
@@ -33,4 +33,4 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
 
 $mysqli->close();
 
-echo "Connection closed.<br>";
+echo "<br><br>Connection closed.<br>";
