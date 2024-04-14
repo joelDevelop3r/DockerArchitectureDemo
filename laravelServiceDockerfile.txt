@@ -18,7 +18,7 @@ WORKDIR /var/www/html
 # Copy existing application directory
 COPY ./app .
 
-# Install Laravel dependencies
+# www-data user must have read access to larvel /public/index.php, in this case only to php file
 RUN chown www-data:www-data /var/www/html/index.php
 
 # Instalar la extensión mysqli
