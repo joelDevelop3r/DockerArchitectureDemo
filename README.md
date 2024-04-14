@@ -30,4 +30,4 @@ How to run:
 			Option 2: 'docker-compose --profile random up -d' to run with http random service
 	 				Navigate to http://localhost:8000/thiio to show second app
 	 
-	4. Navigate to http://localhost:8000 to add tables to exampledb and f5 on first app to see changes
+	4. Navigate to http://localhost:8080 to add tables on exampledb
