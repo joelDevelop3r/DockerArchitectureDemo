@@ -1,0 +1,29 @@
+FROM php:7.4-fpm-alpine
+
+# Install dependencies
+RUN apk add --no-cache \
+    curl \
+    zip \
+    unzip \
+    git \
+    libzip-dev \
+    && docker-php-ext-install zip pdo_mysql
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy existing application directory
+COPY ./app .
+
+# Install Laravel dependencies
+RUN chown www-data:www-data /var/www/html/index.php
+
+# Instalar la extensión mysqli
+RUN docker-php-ext-install mysqli
+
+# Expose port 9000 and start php-fpm server
+EXPOSE 9000
+CMD ["php-fpm"]
